@@ -98,6 +98,9 @@ map <C-p> :Files<CR>
 map <C-f> :Rg<CR>
 map <S-Tab> :bn<CR>
 map <F5> :setlocal spell! spelllang=en_gb<CR>
+if has('nvim')
+  :tnoremap <C-w> <C-\><C-n><C-w>
+endif
 
 let loaded_matchparen = 1
 let mapleader = " "
