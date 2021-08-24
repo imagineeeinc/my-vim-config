@@ -17,3 +17,9 @@ node copy.js
 node paste.js
 # to paste
 ```
+
+run:
+```vim
+:PluginInstall
+```
+inside nvim
