@@ -21,6 +21,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'victorze/foo'
 Plugin 'pakutoma/toggle-terminal'
+Plugin 'sakshamgupta05/vim-todo-highlight'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -89,7 +90,7 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=100
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0 guibg=lightblue
 
 map <C-t> :NERDTreeToggle<CR>
 " <C-,> to toggle
@@ -161,14 +162,6 @@ let g:ale_fix_on_save = 1
 " Close NERDTree when closing the last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-autocmd BufWritePre * :call TrimWhitespace()
-
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
@@ -178,7 +171,7 @@ command! -bang -nargs=* Rg
 let g:auto_save = 1  " enable AutoSave on Vim
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'solarized',
       \ }
 
 set splitbelow
@@ -191,10 +184,10 @@ set background=dark    " Setting dark mode
 autocmd VimEnter * NERDTree
 autocmd VimEnter * vertical resize 22 | wincmd p
 autocmd VimEnter * STerm
-autocmd Vimenter * resize 8 | wincmd p
+autocmd Vimenter * resize 10 | wincmd p
 autocmd Vimenter * set number
 
-" augroup ReduceNoise
+ augroup ReduceNoise
   "  autocmd!
     " Automatically resize active split to 85 width
    " autocmd WinEnter * :call ResizeSplits()
