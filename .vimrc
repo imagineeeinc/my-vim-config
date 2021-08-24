@@ -19,6 +19,7 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'preservim/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'victorze/foo'
 Plugin 'pakutoma/toggle-terminal'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -182,7 +183,8 @@ let g:lightline = {
 
 set splitbelow
 
-autocmd vimenter * ++nested colorscheme gruvbox
+syntax enable
+autocmd vimenter * ++nested colorscheme abyss
 set background=dark    " Setting dark mode
 
 " Setsup windows
